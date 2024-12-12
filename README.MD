@@ -7,7 +7,7 @@
 ## Установка:
 1. Клонируйте репозиторий:
 ```
-https://github.com/ArtemMTim/course_project_5
+https://github.com/ArtemMTim/Course_Project_5
 ```
 2. Установите зависимости:
 ```
