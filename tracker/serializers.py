@@ -4,6 +4,8 @@ from .models import Habits
 
 
 class HabitsSerializer(ModelSerializer):
+    """Сериализатор привычки."""
+
     class Meta:
         model = Habits
         fields = "__all__"

@@ -1,6 +1,10 @@
-from rest_framework.generics import (CreateAPIView, DestroyAPIView,
-                                     ListAPIView, RetrieveAPIView,
-                                     UpdateAPIView)
+from rest_framework.generics import (
+    CreateAPIView,
+    DestroyAPIView,
+    ListAPIView,
+    RetrieveAPIView,
+    UpdateAPIView,
+)
 
 from users.permissions import IsCreater
 
@@ -9,6 +13,8 @@ from .serializers import HabitsSerializer
 
 
 class HabitsPublicListApiView(ListAPIView):
+    """Контроллер списка всех публичных привычек."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
@@ -17,6 +23,8 @@ class HabitsPublicListApiView(ListAPIView):
 
 
 class HabitsUsersListApiView(ListAPIView):
+    """Контроллер списка всех привычек пользователя."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
@@ -25,6 +33,8 @@ class HabitsUsersListApiView(ListAPIView):
 
 
 class HabitsCreateApiView(CreateAPIView):
+    """Контроллер создания привычки."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
@@ -35,6 +45,8 @@ class HabitsCreateApiView(CreateAPIView):
 
 
 class HabitsRetrieveApiView(RetrieveAPIView):
+    """Контроллер просмотра привычки."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
@@ -44,6 +56,8 @@ class HabitsRetrieveApiView(RetrieveAPIView):
 
 
 class HabitsUpdateApiView(UpdateAPIView):
+    """Контроллер изменения привычки."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
@@ -53,6 +67,8 @@ class HabitsUpdateApiView(UpdateAPIView):
 
 
 class HabitsDestroyApiView(DestroyAPIView):
+    """Контроллер удаления привычки."""
+
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
