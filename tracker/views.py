@@ -5,7 +5,7 @@ from rest_framework.generics import (
     RetrieveAPIView,
     UpdateAPIView,
 )
-
+from users.models import User
 from users.permissions import IsCreater
 
 from .models import Habits
@@ -38,9 +38,12 @@ class HabitsCreateApiView(CreateAPIView):
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
+    #def perform_create(self, serializer):
+        #habit = serializer.save()
+        #habit.creater = self.request.user
+        #habit.save()
     def perform_create(self, serializer):
-        habit = serializer.save()
-        habit.creater = self.request.user
+        habit = serializer.save(creater=self.request.user)
         habit.save()
 
 
