@@ -1,14 +1,11 @@
-from rest_framework.generics import (
-    CreateAPIView,
-    DestroyAPIView,
-    ListAPIView,
-    RetrieveAPIView,
-    UpdateAPIView,
-)
-from users.models import User
+from rest_framework.generics import (CreateAPIView, DestroyAPIView,
+                                     ListAPIView, RetrieveAPIView,
+                                     UpdateAPIView)
+
 from users.permissions import IsCreater
 
 from .models import Habits
+from .pagination import PageSize
 from .serializers import HabitsSerializer
 
 
@@ -17,6 +14,7 @@ class HabitsPublicListApiView(ListAPIView):
 
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
+    pagination_class = PageSize
 
     def get_queryset(self):
         return Habits.objects.filter(is_public=True)
@@ -27,6 +25,7 @@ class HabitsUsersListApiView(ListAPIView):
 
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
+    pagination_class = PageSize
 
     def get_queryset(self):
         return Habits.objects.filter(creater=self.request.user)
@@ -38,10 +37,10 @@ class HabitsCreateApiView(CreateAPIView):
     queryset = Habits.objects.all()
     serializer_class = HabitsSerializer
 
-    #def perform_create(self, serializer):
-        #habit = serializer.save()
-        #habit.creater = self.request.user
-        #habit.save()
+    # def perform_create(self, serializer):
+    # habit = serializer.save()
+    # habit.creater = self.request.user
+    # habit.save()
     def perform_create(self, serializer):
         habit = serializer.save(creater=self.request.user)
         habit.save()

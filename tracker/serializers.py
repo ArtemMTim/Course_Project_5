@@ -1,14 +1,17 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
-from .validators import HabitValidator
-from .models import Habits
+
 from users.serializers import UserSerializer
+
+from .models import Habits
+from .validators import HabitValidator
 
 
 class HabitsSerializer(ModelSerializer):
     """Сериализатор привычки."""
+
     creater = UserSerializer(read_only=True)
 
     class Meta:
         model = Habits
-        fields = '__all__'
+        fields = "__all__"
         validators = [HabitValidator(field="__all__")]
