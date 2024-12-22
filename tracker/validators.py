@@ -29,7 +29,8 @@ class HabitValidator:
                     "Нельзя выбирать связанную привычку или вознаграждение для приятной привычки."
                 )
 
-        if not value["related_habit"].is_pleasant:
-            raise serializers.ValidationError(
-                "В связанные привычки можно выбрать только привычки с признаком приятной привычки."
-            )
+        if value["related_habit"]:
+            if not value["related_habit"].is_pleasant:
+                raise serializers.ValidationError(
+                    "В связанные привычки можно выбрать только привычки с признаком приятной привычки."
+                )
