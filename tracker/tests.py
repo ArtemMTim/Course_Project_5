@@ -200,5 +200,7 @@ class HabitsTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(
             response.json().get("non_field_errors"),
-            ["Нельзя выбирать связанную привычку или вознаграждение для приятной привычки."],
+            [
+                "Нельзя выбирать связанную привычку или вознаграждение для приятной привычки."
+            ],
         )
