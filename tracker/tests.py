@@ -164,7 +164,8 @@ class HabitsTestCase(APITestCase):
         )
 
     def test_habit_create_reward_related_habit(self):
-        """Тестирование получения сообщения об одновременно выборе награды и связанной привычки при создании привычки."""
+        """Тестирование получения сообщения об одновременно выборе награды
+        и связанной привычки при создании привычки."""
         url = reverse("tracker:habits_create")
         data = {
             "place_to_do": "Test",
@@ -184,7 +185,8 @@ class HabitsTestCase(APITestCase):
         )
 
     def test_habit_create_reward_for_pleasant_habit(self):
-        """Тестирование получения сообщения о неверном выборе награды и связанной привычки при создании приятной привычки."""
+        """Тестирование получения сообщения о неверном выборе награды
+        и связанной привычки при создании приятной привычки."""
         url = reverse("tracker:habits_create")
         data = {
             "place_to_do": "Test",
