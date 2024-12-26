@@ -66,6 +66,12 @@ class Habits(models.Model):
         default=False,
         help_text="Введите признак публичности",
     )
+    last_action_date = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name="Дата последнего выполнения привычки",
+        help_text="Введите дату последнего выполнения привычки",
+    )
 
     class Meta:
         verbose_name = "Привычка"

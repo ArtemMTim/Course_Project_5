@@ -17,6 +17,7 @@ class HabitsAdmin(admin.ModelAdmin):
         "reward",
         "duration",
         "is_public",
+        "last_action_date",
     )
     search_fields = ["action_to_do", "time_to_do", "place_to_do"]
     list_filter = ["creater", "is_pleasant", "is_public"]
