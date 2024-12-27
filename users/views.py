@@ -1,5 +1,3 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
                                      UpdateAPIView)
@@ -10,6 +8,8 @@ from users.serializers import UserSerializer
 
 
 class UserCreateApiView(CreateAPIView):
+    """Контроллер создания пользователя."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
@@ -21,20 +21,28 @@ class UserCreateApiView(CreateAPIView):
 
 
 class UserDeleteApiView(DestroyAPIView):
+    """Контроллер удаления пользователя."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserUpdateApiView(UpdateAPIView):
+    """Контроллер изменения пользователя."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserRetrieveApiView(RetrieveAPIView):
+    """Контроллер просмотра пользователя."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserListApiView(ListAPIView):
+    """Контроллер просмотра списка пользователей."""
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
